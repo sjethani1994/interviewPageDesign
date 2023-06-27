@@ -1,0 +1,11 @@
+<div *ngIf="apiService.loaderStatus">
+  <div class="loading-wrapper"></div>
+  <div class="overlay"></div>
+  <div class="spanner">
+    <div class="loader"></div>
+    <p>Please wait, we're processing your request ..</p>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

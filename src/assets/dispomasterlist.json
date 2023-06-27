@@ -1,0 +1,56 @@
+{
+  "Not Connected": [
+    "No Answer Ringing",
+    "Incorrect Number",
+    "Busy on Other Call",
+    "Switched Off",
+    "Network Message",
+    "Odd Tone",
+    "Closed"
+  ],
+  "Call Back": [
+    "Call back asked by customer",
+    "Right Party not available",
+    "Technical issues",
+    "Network Issues",
+    "Call got disconnected",
+    "Hung Up Without Listening",
+    "Customer is not online",
+    "Open"
+  ],
+  "Not Eligible": [
+    "Test Lead",
+    "Eligibility Criteria not met",
+    "Documentation Issue",
+    "QC Reject",
+    "Wrong Number Connected",
+    "Prank / DNC",
+    "Existing POS",
+    "Closed"
+  ],
+  "Not Interested": [
+    "Lost to competition",
+    "Poor Customer Experience",
+    "Need Personal Meeting",
+    "Closed due to long time follow up",
+    "Dropped/Postponed the plan",
+    "Reason Not Mentioned",
+    "Closed"
+  ],
+  "Service Related": [
+    "Resolved on call",
+    "POS training related",
+    "Closed"
+  ],
+  "Prospect": [
+    "Documentation in process",
+    "Comparing with competition",
+    "POS link sent",
+    "Payment Awaited",
+    "Open"
+  ],
+  "POS Confirmed": [
+    "Became IL POS",
+    "Closed"
+  ]
+}

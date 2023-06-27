@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Muli", sans-serif !important;
+}
+
+h5 {
+    font-size: 18px;
+    font-family: "Muli", sans-serif !important;
+}
+
+label,
+input,
+select,
+button {
+    font-size: 14px;
+}
+
+
+.bs-datepicker-body table td.week span {
+    color: #005c9e !important;
+}
+
+.bs-datepicker-body table td span.selected,
+.bs-datepicker-head,
+.bs-datepicker-head,
+.bs-datepicker button:active,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*="select-"]:after,
+.bs-datepicker-body table td[class*="select-"] span:after,
+.bs-datepicker-body table td.active-week span:hover {
+    background-color: #005c9e !important;
+}

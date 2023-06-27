@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-6" *ngFor="let item of userList">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-3">
+            <img
+              src="{{ item.picture }}"
+              class="img-fluid rounded-start"
+              alt="{{ item.picture }}"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p
+                class="card-text mb-1"
+                style="font-weight: lighter; color: #0000005c"
+              >
+                {{ item.id }}
+              </p>
+              <p class="card-text" style="font-weight: bold; color: #0000005c">
+                {{ item.firstName }} {{ item.lastName }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
