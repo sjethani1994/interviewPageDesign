@@ -5,10 +5,23 @@
 
 <div class="product-list">
   <div *ngFor="let product of products" class="product-item">
+    <!-- Display the product's image with [src] binding -->
     <img [src]="product.image" alt="{{ product.title }}" />
+
+    <!-- Display the product's title -->
     <h2>{{ product.title }}</h2>
+
+    <!-- Display the product's description -->
     <p>{{ product.description }}</p>
+
+    <!-- Display the product's price -->
     <p>Price: {{ product.price }}</p>
+
+    <!-- Add a button to add the product to the cart -->
     <button (click)="addToCart(product)">Add to Cart</button>
+    <ng-container *ngIf="selectedProductIds.includes(product.id)">
+      <button (click)="redirectToCart()">Go to Cart</button>
+      <button (click)="removeFromCart(product)">Remove Cart</button>
+    </ng-container>
   </div>
 </div>

@@ -10,9 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ErroHandlerInterceptor } from './service/http.interceptor';
+import { CommonModule } from '@angular/common';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart-component/cart.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductListComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +26,7 @@ import { ErroHandlerInterceptor } from './service/http.interceptor';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     Ng2SearchPipeModule,
+    CommonModule
   ],
   providers: [
     {

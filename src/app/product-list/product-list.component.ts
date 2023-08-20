@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product-service.service';
 import { Product } from './product.interface';
+import { CartService } from '../service/cart-service.service';
+import { Router } from '@angular/router';
+import { CartItem } from '../cart-component/cart-item.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -9,15 +12,26 @@ import { Product } from './product.interface';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = [];
+  public products: Product[] = [];
   error: string = '';
-
-  constructor(private productService: ProductService) {}
+  public selectedProducts: Product[] = [];
+  public selectedProductIds: number[] = [];
+  public cartItems: CartItem[] = [];
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.getProductList();
+  }
+
+  getProductList() {
     this.productService.getProducts().subscribe(
       (data) => {
         this.products = data;
+        console.log(this.products);
       },
       (error) => {
         this.error = 'Error loading products. Please try again later.';
@@ -26,12 +40,40 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    // Assuming you have a cartItems array in this component to store selected products
-    // You can add the selected product to the cartItems array
-    // For a complete cart functionality, it's recommended to use a CartService
-    const selectedProduct: Product = { ...product }; // Clone the product to avoid reference issues
-    // Add the selected product to the cartItems array (you need to define cartItems)
-    // For example:
-    // this.cartItems.push(selectedProduct);
+    // Create a copy of the product
+    const selectedProduct: Product = { ...product };
+
+    if (!this.selectedProductIds.includes(product.id)) {
+      this.selectedProductIds.push(product.id);
+    }
+
+    this.cartService.addToCart(product);
+  }
+
+  removeFromCart(product: Product) {
+    // Remove the product's id from the selectedProductIds array
+    const index = this.selectedProductIds.indexOf(product.id);
+    if (index !== -1) {
+      this.selectedProductIds.splice(index, 1);
+    }
+
+    const cartItem: CartItem = {
+      product: {
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        image: product.image,
+      },
+      quantity: 0,
+    }
+    this.cartItems.push(cartItem);
+    // Remove the product from the cart using your cart service
+    this.cartService.removeFromCart(cartItem);
+  }
+
+  redirectToCart() {
+    // Redirect to the cart page
+    this.router.navigate(['/cart']);
   }
 }

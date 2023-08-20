@@ -1,18 +1,38 @@
 <!-- cart.component.html -->
-<div *ngFor="let item of cartItems" class="cart-item">
-  <img [src]="item.product.image" alt="{{ item.product.title }}" />
-  <h2>{{ item.product.title }}</h2>
-  <p>{{ item.product.description }}</p>
-  <p>Price: {{ item.product.price }}</p>
-  <div class="quantity-control">
-    <button (click)="decrementQuantity(item)">-</button>
-    {{ item.quantity }}
-    <button (click)="incrementQuantity(item)">+</button>
+<ng-container *ngIf="cartItems.length === 0; else cartContents">
+  <div class="empty-cart">
+    <!-- Display an image when the cart is empty -->
+    <img
+      src="../../assets/images/empty_cart_dribbble.png"
+      width="400"
+      height="300"
+      alt="Empty Cart Image"
+    />
+
+    <!-- button to redirect to products page -->
+    <button class="empty-cart-button" (click)="redirectToProducts()">
+      Go to Products
+    </button>
   </div>
-  <button (click)="removeFromCart(item)" class="remove-button">
-    Remove from Cart
-  </button>
-</div>
+</ng-container>
+
+<!-- Display cart contents when the cart is not empty -->
+<ng-template #cartContents>
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.product.image" alt="{{ item.product.title }}" />
+    <h2>{{ item.product.title }}</h2>
+    <p>{{ item.product.description }}</p>
+    <p>Price: {{ item.product.price }}</p>
+    <div class="quantity-control">
+      <button (click)="decrementQuantity(item)">-</button>
+      {{ item.quantity }}
+      <button (click)="incrementQuantity(item)">+</button>
+    </div>
+    <button (click)="removeFromCart(item)" class="remove-button">
+      Remove from Cart
+    </button>
+  </div>
+</ng-template>
 <!-- <div class="total-cart-value">
   Total Cart Value: {{ getTotalCartValue() | currency : "USD" }}
 </div> -->
