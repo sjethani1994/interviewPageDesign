@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart-component/cart.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'user-list', pathMatch: 'full' },
-  {
-    path: 'user-list',
-    component: UserListComponent,
-  },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: 'products', component: ProductListComponent },
+  { path: 'cart', component: CartComponent },
+  // Add more routes as needed for other components
 ];
 
 @NgModule({

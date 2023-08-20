@@ -1,0 +1,14 @@
+<!-- product-list.component.html -->
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>
+
+<div class="product-list">
+  <div *ngFor="let product of products" class="product-item">
+    <img [src]="product.image" alt="{{ product.title }}" />
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <p>Price: {{ product.price }}</p>
+    <button (click)="addToCart(product)">Add to Cart</button>
+  </div>
+</div>

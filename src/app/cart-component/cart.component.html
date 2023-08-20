@@ -1,0 +1,18 @@
+<!-- cart.component.html -->
+<div *ngFor="let item of cartItems" class="cart-item">
+  <img [src]="item.product.image" alt="{{ item.product.title }}" />
+  <h2>{{ item.product.title }}</h2>
+  <p>{{ item.product.description }}</p>
+  <p>Price: {{ item.product.price }}</p>
+  <div class="quantity-control">
+    <button (click)="decrementQuantity(item)">-</button>
+    {{ item.quantity }}
+    <button (click)="incrementQuantity(item)">+</button>
+  </div>
+  <button (click)="removeFromCart(item)" class="remove-button">
+    Remove from Cart
+  </button>
+</div>
+<!-- <div class="total-cart-value">
+  Total Cart Value: {{ getTotalCartValue() | currency : "USD" }}
+</div> -->

@@ -10,10 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ErroHandlerInterceptor } from './service/http.interceptor';
-import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
-  declarations: [AppComponent, UserListComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
