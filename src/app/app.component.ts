@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { ApiService } from 'src/app/service/api.service';
 export class AppComponent {
   title = 'verificationportal';
 
-  constructor(public apiService: ApiService) {
+  constructor() {
 
   }
 
