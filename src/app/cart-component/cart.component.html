@@ -1,5 +1,5 @@
 <!-- cart.component.html -->
-<ng-container *ngIf="cartItems.length === 0; else cartContents">
+<ng-container *ngIf="(cartItems$ | async)?.length === 0; else cartContents">
   <div class="empty-cart">
     <!-- Display an image when the cart is empty -->
     <img
@@ -18,7 +18,7 @@
 
 <!-- Display cart contents when the cart is not empty -->
 <ng-template #cartContents>
-  <div *ngFor="let item of cartItems" class="cart-item">
+  <div *ngFor="let item of cartItems$ | async" class="cart-item">
     <img [src]="item.product.image" alt="{{ item.product.title }}" />
     <h2>{{ item.product.title }}</h2>
     <p>{{ item.product.description }}</p>
@@ -33,6 +33,3 @@
     </button>
   </div>
 </ng-template>
-<!-- <div class="total-cart-value">
-  Total Cart Value: {{ getTotalCartValue() | currency : "USD" }}
-</div> -->

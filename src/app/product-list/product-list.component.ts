@@ -1,4 +1,3 @@
-// product-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product-service.service';
 import { Product } from './product.interface';
@@ -66,7 +65,7 @@ export class ProductListComponent implements OnInit {
         image: product.image,
       },
       quantity: 0,
-    }
+    };
     this.cartItems.push(cartItem);
     // Remove the product from the cart using your cart service
     this.cartService.removeFromCart(cartItem);

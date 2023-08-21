@@ -4,6 +4,7 @@ import { CartService } from '../service/cart-service.service';
 import { CartItem } from './cart-item.interface';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
   providers: [CurrencyPipe],
 })
 export class CartComponent implements OnInit {
-  cartItems: CartItem[] = [];
+  public cartItems$!: Observable<CartItem[]>;
 
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
-    this.cartItems = this.cartService.getCartItems();
+    this.cartItems$ = this.cartService.getCartItems();
   }
 
   removeFromCart(item: CartItem) {
@@ -36,7 +37,6 @@ export class CartComponent implements OnInit {
   }
 
   redirectToProducts() {
-    // Redirect to the products page
     this.router.navigate(['/products']);
   }
 }
